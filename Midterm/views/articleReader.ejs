@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <title>Article Name</title>
+</head>
+
+<body>
+    <!--Article Title, Subtitle, Author, Date Published-->
+    <section>
+        <h1>
+            <%=title%>
+        </h1>
+        <h2>
+            <%=subtitle%>
+        </h2>
+        <h2>
+            <%=author%>
+        </h2>
+        <h2>
+            <%=article.article_published%>
+        </h2>
+    </section>
+    <!--Article Text-->
+    <section>
+        <p class="articleText">
+            <%=article.article_text%>
+        </p>
+    </section>
+    <!--Likes-->
+    <section>
+        <h3>Likes: <%=article.article_likes%> </h3>
+        <form method="get" action="/article">
+            <input type="hidden" name="like" value="1"/>
+            <button type = "submit" name = "id" value = "<%=article.article_id%>"class="genericButton">Like</button>
+        </form>
+    </section>
+    <!-- Comments Section -->
+    <section>
+        <!--Comments-->
+        <h3>Comments:</h3>
+        <table>
+            <tbody>
+                <%comments.forEach(function(n){%>
+                    <tr>
+                        <td class="comment">
+                            Anonymous
+                        </td>
+                        <td class="comment">
+                            <%=n.comments_text%>
+                        </td>
+                    </tr>
+                    <%})%>
+            </tbody>
+        </table>
+    </section>
+    <!--Leave Comment Section-->
+    <section>
+        <form method="post" action="/article">
+            <h3>Leave a Comment</h3>
+            <p><%=msg%></p>
+            <textarea name="userComment" placeholder="Enter Comment..." class="largeTextForm">
+            </textarea>
+            <input type="hidden" name="id" value="<%=article.article_id%>" />
+            <div>
+                <button class="genericButton" type="submit">Post Comment</button>
+            </div>
+        </form>
+
+    </section>
+    <!--Back Button-->
+    <section>
+        <form method="get" action="/">
+            <input type="hidden" name="title" value="<%=title%>" />
+            <input type="hidden" name="sub" value="<%=subtitle%>" />
+            <input type="hidden" name="auth" value="<%=author%>" />
+            <button type="submit" class="genericButton">Back</button>
+        </form>
+    </section>
+</body>
+
+</html>

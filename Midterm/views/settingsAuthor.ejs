@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+    <title>Settings</title>
+</head>
+
+<body>
+    <!--Title-->
+    <h1>Settings</h1>
+    <!--Fields to change blog title, subtitle, author name.
+            Each field has a submit button to that takes new values and redirects to indexAuthor.
+            Form validation is needed for no empty fields to be present.-->
+    <section>
+        <%if(typeof err !='undefined' ){%>
+            <div>
+                <%for(let i=0; i < err.length ; i++){%>
+                    <p>
+                        <%=err[i].msg%> 
+                    </p>
+                    <%}%>
+            </div>
+        <%}%>
+                <nav>
+                    <form id="settingsForm" method="post" action="/auth">
+                        <h3>Blog Title</h3>
+                        <input type="text" id="blogTitle" name="title" value="<%=title%>">
+                        <h3>Blog Subtitle</h3>
+                        <input type="text" id="blogSub" name="sub" value="<%=subtitle%>">
+                        <h3>Author Name</h3>
+                        <input type="text" id="authName" name="auth" value="<%=author%>">
+                        <input type="submit" class="genericButton" id="SubmitButton" value="Submit">
+                    </form>
+                    <form method="get" action="/auth">
+                        <input type="submit" class="genericButton" value="Back">
+                    </form>
+                </nav>
+
+</body>
+
+</html>

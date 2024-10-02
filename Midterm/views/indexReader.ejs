@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <title>Homepage</title>
+</head>
+
+<body>
+    <!--Blog Title,Subtitle, Author Name -->
+    <section>
+        <h1>
+            <%=title%>
+        </h1>
+        <h2>
+            <%=subtitle%>
+        </h2>
+        <h2>
+            <%=author%>
+        </h2>
+    </section>
+    <!--List of Published articles-->
+    <section>
+        <h3>Articles</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Publication Date</th>
+                    <th>Likes</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%for(let i=0; i < rows.length; i++){%>
+                    <tr>
+                        <form method="get" action="/article">
+                            <td>
+                                <button type="submit" name="id" value="<%=rows[i].article_id%>">
+                                    <%=rows[i].article_title%>
+                                </button>
+                            </td>
+                            <td>
+                                <button type="submit" name="id" value="<%=rows[i].article_id%>">
+                                    <%=rows[i].article_published%>
+                                </button>
+                            </td>
+                            <td> 
+                                <button type="submit" name="id" value="<%=rows[i].article_id%>">
+                                    <%=rows[i].article_likes%>
+                                </button>
+                            </td>
+                        </form>
+
+                        <%}%>
+                    </tr>
+            </tbody>
+
+        </table>
+    </section>
+</body>
+
+</html>

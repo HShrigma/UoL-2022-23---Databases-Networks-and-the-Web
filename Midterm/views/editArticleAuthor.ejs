@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../css/styles.css" />
+    <title>Edit Article</title>
+</head>
+
+<body>
+    <!--Title-->
+    <h1>Edit</h1>
+    <!--Article title, subtitle-->
+    <form method="post" action = "/auth/edit">
+        <section>
+            <%if(typeof err !='undefined' ){%>
+                <div>
+                    <%for(let i=0; i < err.length ; i++){%>
+                        <p>
+                            <%=err[i].msg%>
+                        </p>
+                        <%}%>
+                </div>
+            <%}%>
+            <h3>Title:</h3>
+            <input name="title"type="text" value="<%=title%>" placeholder="Enter title here...">
+            <h3>Subtitle:</h3>
+            <input name="sub"type="text" value="<%=subtitle%>" placeholder="Enter subtitle here...">
+        </section>
+
+        <!--Article text-->
+        <section>
+            <h3>Text:</h3>
+            <textarea name="text" value="<%=text%>" class="largeTextForm"><%=text%></textarea>
+        </section>
+        <nav> <!--Submit Changes button-->
+            <button name ="id" value ="<%=id%>"type = "submit" class="genericButton">Submit Changes</button>
+    </form>
+
+    <!--Back Button-->
+    <form method="get" action="/auth">
+        <button type="submit" class="genericButton">Back</button>
+    </form>
+    </nav>
+
+</body>
+
+</html>

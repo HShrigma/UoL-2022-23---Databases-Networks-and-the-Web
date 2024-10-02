@@ -1,0 +1,112 @@
+h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2vw;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.5vw;
+    margin:1vh;
+}
+
+h3 {
+    text-align: left;
+    font-weight: bolder;
+}
+
+nav {
+    display: block;
+    margin:1vh;
+    margin-left: 0px;
+    align-items: flex-end;
+}
+nav>*{
+    margin: 1vh;
+}
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: lighter;
+    color: rgb(200, 198, 198);
+}
+
+table {
+    border-collapse: collapse;
+}
+
+table>thead>tr>th {
+    border: 1px solid;
+    padding: 5px;
+    margin: 0px;
+    border-radius: 100%;
+    font-weight: lighter;
+}
+
+table>tbody>tr {
+    border-bottom: 1px solid;
+}
+table>tbody>tr>td {
+    padding: 10px;
+}
+table>tbody>tr>.comment {
+    padding: 10px;
+    margin:10px;
+    background-color: bisque;
+    color: salmon;
+}
+table>tbody>tr>td>button {
+    padding: 10px;
+    border:none;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(200, 198, 198);
+    background-color:rgba(255, 255, 255, 0);
+}
+
+button:hover{
+    color:whitesmoke;
+}
+.genericButton{
+    display: inline;
+    padding: 5px;    
+    border-radius: 10%;
+    border-width: 3px;
+    border-color: rgb(200, 198, 198);
+    color: rgb(200, 198, 198);
+    font-weight: bold;
+    border-style: solid;
+}
+.delete{
+    padding: 5px;    
+    border-radius: 10%;
+    border-width: 3px;
+    border-color: rgb(200, 198, 198);
+    color: rgb(200, 198, 198);
+    font-weight: bold;
+    border-style: solid;
+}
+.genericButton:hover{
+    background-color: rgb(109, 183, 202);
+}
+.delete:hover{
+    background-color: rgb(202, 109, 109);
+}
+.largeTextForm{
+    background-color: rgb(230, 230, 230);
+    width: 300px;
+    height: 150px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    resize: none;
+    border:rgb(200, 198, 198);
+}
+.articleText{
+    text-align: center;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    background-color: beige;
+}
+.errMsg{
+    display: inline;
+    margin-left: 4px;
+    color:red;
+}

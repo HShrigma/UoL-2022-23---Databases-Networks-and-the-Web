@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <title>Author Homepage</title>
+</head>
+
+<body>
+    <!--Display title,subtitle, author name-->
+    <section>
+        <h1>
+            <%= title %>
+        </h1>
+        <h2>
+            <%= subtitle%>
+        </h2>
+        <h2>
+            <%= author%>
+        </h2>
+        <!--Second Heading-->
+        <h1>Author Page</h1>
+    </section>
+    <!--Navigation bar-->
+    <nav>
+        <!-- Settings button-->
+        <form method="get" action="/auth/settings">
+            <input type="submit" value="Settings" class="genericButton" />
+        </form>
+        <!-- New Draft Button - create new draft article and redirect to its edit page-->
+        <form method="get" action="/auth/edit">
+            <input type="submit" name="id" value="New Draft" class="genericButton" />
+        </form>
+
+    </nav>
+    <section>
+        <!--Section with author's articles: Title, date created, published, last modified, likes -->
+        <!--Share button gives link to reader page-->
+        <!--Delete button removes article from DB and refreshes page-->
+        <h3>Published Articles</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Date Created
+                    </th>
+                    <th>
+                        Date Published
+                    </th>
+                    <th>
+                        Date Modified
+                    </th>
+                    <th>
+                        Likes
+                    </th>
+                    <th>URL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% aRows.forEach(function(row){ %>
+                    <tr>
+                        <td>
+                            <%=row.article_title%>
+                        </td>
+                        <td>
+                            <%=row.article_created%>
+                        </td>
+                        <td>
+                            <%=row.article_published%>
+                        </td>
+                        <td>
+                            <%=row.article_modified%>
+                        </td>
+                        <td>
+                            <%=row.article_likes%>
+                        </td>
+                        <form>
+                            <td>
+                                http://localhost:3000/article?id=<%=row.article_id%>
+                            </td>
+                        </form>
+
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </section>
+    <section>
+        <!--Section with author's drafts: Title, date created, published, last modified -->
+        <!--Publish button puts article from drafts table to published and refreshes page -->
+        <!--Delete button removes article from DB and refreshes page-->
+        <h3>Drafts</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Date Created</th>
+                    <th>Date Published</th>
+                    <th>Last Modified</th>
+                </tr>
+            </thead>
+            <tbody>
+                <%dRows.forEach(function(row){%>
+                    <tr>
+                        <form method="get" action="/auth/edit">
+                            <td>
+                                <button name="id" value="<%=row.article_id%>" type="submit">
+                                    <%=row.article_title%>
+                                </button>
+                            </td>
+                            <td>
+                                <button name="id" value="<%=row.article_id%>" type="submit">
+                                    <%=row.article_created%>
+                                </button>
+                            </td>
+                            <td>
+                                <button name="id" value="<%=row.article_id%>" type="submit">
+                                    <%=row.article_published%>
+                                </button>
+                            </td>
+                            <td>
+                                <button name="id" value="<%=row.article_id%>" type="submit">
+                                    <%=row.article_modified%>
+                                </button>
+                            </td>
+                        </form>
+
+                        <td>
+                            <form method="POST" action="/auth">
+                                <button name="delete" value="<%=row.article_id%>" type="submit"
+                                    class="delete">Delete</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form method="POST" action="/auth">
+                                <button name="publish" value="<%=row.article_id%>" type="submit"
+                                    class="genericButton">Publish</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <%})%>
+
+            </tbody>
+
+        </table>
+    </section>
+</body>
+
+</html>
