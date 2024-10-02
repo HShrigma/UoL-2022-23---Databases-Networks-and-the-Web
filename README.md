@@ -1,2 +1,2 @@
 This works consists of my midterm work. A basic web application with the use of an SQLite Db. It was my first attempt at node.js, express.js was used as a framework, EJS as a templating engine.
-When trying to run please do it by running using "node index.js" in your terminal at the "/Midterm" location. This will allow you to host a local session at port 3000. Run on any browser using "localhost://3000"
+When trying to run please do it by running using "node index.js" in your terminal at the "/Midterm" location. This will allow you to host a local session at port 3000. Run on any browser using "localhost:3000"
